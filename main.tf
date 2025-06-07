@@ -15,8 +15,8 @@ module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "employee-cluster"
   cluster_version = "1.27"
-  subnets         = module.vpc.public_subnets
-  vpc_id          = module.vpc.vpc_id
+  subnets         = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  vpc_id          = "vpc-09683ff71eaaac232"
   node_groups = {
     default = {
       desired_capacity = 2
